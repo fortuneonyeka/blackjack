@@ -1,10 +1,9 @@
-let firstCard = generateRandomInteger();
-let secondCard = generateRandomInteger();
-const cards = [firstCard, secondCard];
 
-let sum = firstCard + secondCard;
+let cards = [];
+
+let sum = 0
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
@@ -21,6 +20,11 @@ function generateRandomInteger() {
 }
 // Create a new function called startGame() that calls renderGame()
 const startGame = () => {
+  isAlive = true
+  let firstCard = generateRandomInteger();
+  let secondCard = generateRandomInteger();
+   cards =  [firstCard, secondCard]
+   sum =  firstCard + secondCard
   renderGame();
 };
 
@@ -36,6 +40,7 @@ function renderGame() {
     message = "Do you want to draw a new card?";
   } else if (sum === 21) {
     message = "You've got Blackjack!";
+    alert("you are the man!!!! 🏆🏆🏆🎉")
     hasBlackJack = true;
   } else {
     message = "You're out of the game!";
@@ -45,9 +50,10 @@ function renderGame() {
 }
 
 function newCard() {
-  let card = generateRandomInteger();
-  sum += card;
-
-  cards.push(card);
+  if(isAlive) {
+    let card = generateRandomInteger()
+sum += card
+cards.push(card)
+}
   renderGame();
 }
