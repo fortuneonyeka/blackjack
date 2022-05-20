@@ -50,10 +50,10 @@ function renderGame() {
 }
 
 function newCard() {
-  if(isAlive) {
+  if(isAlive === true & hasBlackJack === false) {
     let card = generateRandomInteger()
 sum += card
 cards.push(card)
+renderGame();
 }
-  renderGame();
 }
