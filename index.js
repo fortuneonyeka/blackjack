@@ -1,13 +1,20 @@
-
 let cards = [];
-
 let sum = 0
 let hasBlackJack = false;
 let isAlive = false;
 let message = "";
+
+let player = {
+  name: "Mike",
+  chips: 45
+}
+
+let playerEl = document.getElementById("player-el")
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
+
+playerEl.textContent = player.name + ": $" + player.chips
 
 function generateRandomInteger() {
   let randomNumber = Math.floor(Math.random() * 11) + 1;
